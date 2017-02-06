@@ -3,13 +3,13 @@
 #footer {
   background: $gray-darker;
   padding: 30px;
-  color: #CCCCCC;
+  color: $gray-lighter;
   transition: color 0.5s ease;
   p {
     margin-top: 17px;
   }
   a {
-    color: #CCCCCC;
+    color: $gray-lighter;
     font-size: 30px;
     letter-spacing: 20px;
     &:hover {
