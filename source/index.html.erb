@@ -1,4 +1,4 @@
----
+ ---
 title: Le Wagon Middleman boilerplate
 ---
 
@@ -8,3 +8,106 @@ title: Le Wagon Middleman boilerplate
     <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
   </p>
 </div>
+
+
+    <!-- Your banner code -->
+   <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('images/background.jpg');">
+      <div class="banner-content text-center">
+        <h1>TRAVELEASY</h1>
+        <p>Find other amazing travellers like you</p>
+        <a class="btn btn-primary btn-lg">GET IT</a>
+      </div>
+    </div>
+
+    <!-- Your features code -->
+    <div class="wrapper">
+      <div class="container text-center padded" id="features">
+        <div class="row">
+          <div class="  col-xs-12 col-md-3">
+            <%= image_tag "globe.png" %>
+            <div class="text">
+              <h2>Discover the world</h2>
+              <p>Move faster, do more.</p>
+            </div>
+          </div>
+          <div class="text-center col-xs-12 col-md-3">
+            <%= image_tag "beer.png" %>
+            <div class="text">
+              <h2>Experience differently</h2>
+              <p>Build unforgetable memories</p>
+            </div>
+          </div>
+          <div class="text-center col-xs-12 col-md-3">
+            <%= image_tag "heart.png" %>
+            <div class="text">
+              <h2>Meet people</h2>
+              <p>Share with others from different cultures</p>
+            </div>
+          </div>
+          <div class="text-center col-xs-12 col-md-3">
+            <%= image_tag "dollar.png" %>
+            <div class="text">
+              <h2>Save money</h2>
+              <p>And spend it on what really matters</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Your cards code -->
+    <div class="wrapper-grey">
+      <div class="container">
+        <h2 class="text-center">Your next trip</h2>
+        <div class="row">
+        <% data.flats.each do |owner, flat| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path flat.picture %>');">
+              <div class="card-category"><%= flat.city %></div>
+              <div class="card-description">
+                <h2><%= flat.name %></h2>
+                <p><%= flat.summary %></p>
+              </div>
+              <%= image_tag flat.owner_picture, class: "card-user avatar avatar-large" %>
+              <a class="card-link" href="#"></a>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- Your newsletter code -->
+      <div class="text-center padded" id=newsletter>
+          <h2>Want to hear about our last news ?</h2>
+          <p>Leave your email and we will stay in touch.</p>
+          <form class="form-inline" action="#">
+            <label for="your-email">Email</label>
+            <input type="email" class="form-control" id="your-email" placeholder="bob@gmail.com">
+            <input type="submit" class="btn btn-primary" value="Subscribe">
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Your map code -->
+    <div id="map" style="width: 100%; height: 400px;"></div>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script type="text/javascript">
+    var myLatlng = new google.maps.LatLng(48.8655909, 2.378983);
+
+    var myOptions = {
+      zoom: 16,
+      center: myLatlng,
+      scrollwheel: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [[{"featureType":"all","elementType":"geometry.fill","stylers":[{"weight":"2.00"}]},{"featureType":"all","elementType":"geometry.stroke","stylers":[{"color":"#9c9c9c"}]},{"featureType":"all","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#eeeeee"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#7b7b7b"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c8d7d4"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"color":"#070707"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]}]] // TODO: replace [] by array from https://snazzymaps.com/
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), myOptions);
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: "You are here!"
+    });
+    </script>
