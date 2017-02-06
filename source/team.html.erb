@@ -1,27 +1,10 @@
-  <ul class="list-inline">
-  <p>list element 1</p>
-    <li><img src="http://placehold.it/80x80" class="img-circle" alt="cc"></li>
-    <li><img src="http://placehold.it/80x80" class="img-circle" alt="ff"></li>
-    <li><img src="http://placehold.it/80x80" class="img-circle" alt="ff"></li>
+<div class="page-team">
+  <ul class="list-inline text-center">
+    <% ["baptiste", "martin"].each do |member| %>
+      <li>
+        <%= image_tag "#{member}.jpg", class: "avatar-bordered-xl" %>
+        <h3><%= member.capitalize %></h3>
+      </li>
+    <% end %>
   </ul>
 </div>
-
-<ul class="list-inline text-center">
-  <% ["baptiste", "martin"].each do |member| %>
-    <li>
-      <%= image_tag "{member}.jpg", class: "img-circle" %>
-      <h3><%= member.capitalize %></h3>
-    </li>
-  <% end %>
-</ul>
-
-
-
-<ul class="list-inline text-center">
-  <% ["boris", "seb", "romain"].each do |member| %>
-    <li>
-      <%= image_tag "#{member}.png", class: "img-circle" %>
-      <h3><%= member.capitalize %></h3>
-    </li>
-  <% end %>
-</ul>
